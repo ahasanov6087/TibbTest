@@ -117,7 +117,7 @@ html, body {
 }
 
 .question-text {
-  font-size: 1.5rem; /* Mobil üçün artırıldı */
+  font-size: 1.25rem;
   line-height: 1.6;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -134,7 +134,7 @@ html, body {
 
 .answer-btn {
   padding: 1.25rem 1rem;
-  font-size: 1.1rem; /* Mobil üçün artırıldı */
+  font-size: 1rem; /* Desktop üçün default */
   border-radius: var(--radius-md);
   border: 2px solid var(--border-color);
   background: var(--white);
@@ -144,7 +144,7 @@ html, body {
   transition: var(--transition);
   display: flex;
   align-items: center;
-  min-height: 70px;
+  min-height: 60px;
   width: 100%;
 }
 
@@ -180,8 +180,8 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px; /* Mobil üçün artırıldı */
-  height: 36px; /* Mobil üçün artırıldı */
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--primary-color);
   color: white;
@@ -215,7 +215,7 @@ html, body {
 .nav-btn {
   flex: 1;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1rem; /* Desktop üçün default */
   font-weight: 600;
   border-radius: var(--radius-md);
   border: none;
@@ -284,8 +284,45 @@ html, body {
   color: var(--danger-dark);
 }
 
+/* Yalnız mobil cihazlar üçün font ölçülərini artır */
+@media (max-width: 768px) {
+  /* Cavab düymələrində font ölçüsü artırıldı */
+  .answer-btn {
+    font-size: 1.2rem !important; /* Mobil üçün böyük font */
+    padding: 1.35rem 1rem !important;
+    min-height: 70px !important;
+  }
+  
+  .answer-letter {
+    width: 40px !important; /* Mobil üçün böyük */
+    height: 40px !important; /* Mobil üçün böyük */
+    font-size: 1.2rem !important; /* Mobil üçün böyük */
+    margin-right: 1.25rem !important;
+  }
+  
+  /* Naviasiya düymələrində font ölçüsü artırıldı */
+  .nav-btn {
+    font-size: 1.15rem !important; /* Mobil üçün böyük font */
+    padding: 1.15rem !important;
+  }
+  
+  /* Sual mətni font ölçüsü artırıldı */
+  .question-text {
+    font-size: 1.45rem !important; /* Mobil üçün böyük font */
+  }
+  
+  /* Stat dəyərləri font ölçüsü artırıldı */
+  .stat-value {
+    font-size: 1.7rem !important; /* Mobil üçün böyük */
+  }
+  
+  .stat-label {
+    font-size: 0.95rem !important; /* Mobil üçün böyük */
+  }
+}
+
 /* Tablet styles */
-@media (min-width: 600px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .header {
     padding: 1.25rem 1.5rem;
   }
@@ -299,13 +336,13 @@ html, body {
   }
   
   .question-text {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
   }
   
   .answer-btn {
     padding: 1.5rem;
-    font-size: 1.15rem;
-    min-height: 75px;
+    font-size: 1.05rem;
+    min-height: 70px;
   }
   
   .nav-buttons {
@@ -327,7 +364,7 @@ html, body {
 }
 
 /* Desktop styles */
-@media (min-width: 900px) {
+@media (min-width: 1025px) {
   .app {
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -361,13 +398,13 @@ html, body {
   }
   
   .question-text {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
   
   .answer-btn {
     padding: 1.75rem 1.5rem;
-    font-size: 1.2rem;
-    min-height: 80px;
+    font-size: 1.1rem;
+    min-height: 75px;
   }
   
   .navigation-container {
@@ -394,11 +431,11 @@ html, body {
 @media (min-width: 1200px) {
   .answer-btn {
     padding: 2rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .question-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -416,50 +453,35 @@ html, body {
     padding: 1.25rem;
   }
   
-  .question-text {
-    font-size: 1.4rem; /* Artırıldı */
-  }
-  
+  /* 360px-dən aşağı cihazlar üçün xüsusi font ölçüləri */
   .answer-btn {
-    padding: 1rem 0.75rem;
-    font-size: 1.1rem; /* Artırıldı */
-    min-height: 65px;
+    font-size: 1.15rem !important;
+    padding: 1.2rem 0.75rem !important;
+    min-height: 65px !important;
   }
   
   .answer-letter {
-    width: 34px; /* Artırıldı */
-    height: 34px; /* Artırıldı */
-    margin-right: 0.75rem;
-    font-size: 1rem;
+    width: 38px !important;
+    height: 38px !important;
+    margin-right: 0.85rem !important;
+    font-size: 1.15rem !important;
   }
   
-  .nav-btn {
-    padding: 0.875rem;
-    font-size: 0.95rem;
-  }
-}
-
-/* Font sizes for phones - increased */
-@media (max-width: 480px) {
   .question-text {
-    font-size: 1.5rem; /* Mobil üçün artırıldı */
-  }
-  
-  .answer-btn {
-    font-size: 1.1rem; /* Mobil üçün artırıldı */
+    font-size: 1.35rem !important;
   }
   
   .nav-btn {
-    font-size: 1rem;
-    padding: 1rem 0.75rem;
+    padding: 0.95rem !important;
+    font-size: 1.05rem !important;
   }
   
   .stat-value {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
   
   .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
   }
 }
 
@@ -483,13 +505,19 @@ html, body {
   }
   
   .answer-btn {
-    padding: 0.75rem;
-    min-height: 60px;
-    font-size: 1rem;
+    padding: 0.85rem !important;
+    min-height: 55px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .answer-letter {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 1.1rem !important;
   }
   
   .question-text {
-    font-size: 1.3rem;
+    font-size: 1.25rem !important;
   }
 }
 
