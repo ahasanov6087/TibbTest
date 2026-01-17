@@ -122,6 +122,14 @@ document.addEventListener('keydown', function(e) {
       answer(idx);
     }
   }
+  
+  // A, B, C, D keys for answering
+  if (e.key >= 'a' && e.key <= 'd' && state[i] == null) {
+    const idx = e.key.charCodeAt(0) - 97; // 'a' -> 0, 'b' -> 1, etc.
+    if (idx < questions[order[i]].options.length) {
+      answer(idx);
+    }
+  }
 });
 
 // Initialize the app

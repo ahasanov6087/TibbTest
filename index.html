@@ -27,28 +27,28 @@
             <div class="question-container">
                 <div class="question-text" id="q"></div>
                 <div class="answers" id="a"></div>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="nav-buttons">
-                <button class="nav-btn prev" onclick="prev()" aria-label="Əvvəlki sual">
-                    <span>⬅</span> Əvvəl
-                </button>
-                <button class="nav-btn next" id="next" onclick="next()" disabled aria-label="Növbəti sual">
-                    Sonra <span>➡</span>
-                </button>
-            </div>
-            
-            <div class="stats-container">
-                <div class="stat correct-stat">
-                    <span class="stat-value" id="t">0</span>
-                    <span class="stat-label">Doğru</span>
-                </div>
-                <div class="stat wrong-stat">
-                    <span class="stat-value" id="f">0</span>
-                    <span class="stat-label">Səhv</span>
+                
+                <!-- Navigation buttons moved here -->
+                <div class="navigation-container">
+                    <div class="nav-buttons">
+                        <button class="nav-btn prev" onclick="prev()" aria-label="Əvvəlki sual">
+                            <span>⬅</span> Əvvəl
+                        </button>
+                        <button class="nav-btn next" id="next" onclick="next()" disabled aria-label="Növbəti sual">
+                            Sonra <span>➡</span>
+                        </button>
+                    </div>
+                    
+                    <div class="stats-container">
+                        <div class="stat correct-stat">
+                            <span class="stat-value" id="t">0</span>
+                            <span class="stat-label">Doğru</span>
+                        </div>
+                        <div class="stat wrong-stat">
+                            <span class="stat-value" id="f">0</span>
+                            <span class="stat-label">Səhv</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
