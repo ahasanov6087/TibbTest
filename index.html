@@ -2,7 +2,7 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Test Sistemi</title>
 
@@ -11,58 +11,68 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background: #f4f6f8;
-  margin: 0;
-  padding: 10px;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
+/* Full screen container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Progress */
+/* Top progress */
+.top {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
 .progress {
-  height: 18px;
+  height: 16px;
   background: #ddd;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 6px;
 }
 
 .progress-bar {
   height: 100%;
   width: 0%;
   background: #4caf50;
-  transition: width 0.3s ease;
+  transition: width 0.3s;
 }
 
 #progressText {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-top: 6px;
 }
 
-/* Question */
+/* Question area */
+.content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
 #q {
-  font-size: 18px;
-  line-height: 1.4;
-  margin-bottom: 14px;
+  font-size: 20px;
+  line-height: 1.45;
+  margin-bottom: 18px;
 }
 
 /* Answers */
 .answers button {
   width: 100%;
-  padding: 14px;
-  margin: 6px 0;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 18px;
+  margin: 10px 0;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
   background: #f9f9f9;
   cursor: pointer;
   text-align: left;
@@ -75,57 +85,53 @@ body {
 .correct {
   background: #c8e6c9 !important;
   border-color: #2e7d32;
-  color: #2e7d32;
+  color: #1b5e20;
 }
 
 .wrong {
   background: #ffcdd2 !important;
   border-color: #c62828;
-  color: #c62828;
+  color: #b71c1c;
 }
 
-/* Navigation */
-.nav {
+/* Bottom navigation */
+.bottom {
+  padding: 14px;
+  border-top: 1px solid #ddd;
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
 }
 
-.nav button {
+.bottom button {
   flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 12px;
   border: none;
   background: #1976d2;
   color: white;
 }
 
-.nav button:disabled {
+.bottom button:disabled {
   background: #90a4ae;
 }
 
 /* Stats */
 .stats {
-  margin-top: 15px;
+  text-align: center;
   font-size: 16px;
+  margin-top: 6px;
   font-weight: bold;
 }
 
-/* Mobile tweaks */
-@media (max-width: 480px) {
-  #q {
-    font-size: 16px;
-  }
-
-  .answers button {
-    font-size: 15px;
-    padding: 12px;
-  }
-
-  .nav button {
-    font-size: 15px;
-    padding: 10px;
+/* Desktop tweak */
+@media (min-width: 900px) {
+  .app {
+    max-width: 900px;
+    margin: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   }
 }
 </style>
@@ -133,18 +139,24 @@ body {
 
 <body>
 
-<div class="container">
+<div class="app">
 
-  <div class="progress">
-    <div class="progress-bar" id="bar"></div>
+  <!-- TOP -->
+  <div class="top">
+    <div class="progress">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+    <div id="progressText"></div>
   </div>
-  <div id="progressText"></div>
 
-  <h3 id="q"></h3>
+  <!-- CONTENT -->
+  <div class="content">
+    <div id="q"></div>
+    <div class="answers" id="a"></div>
+  </div>
 
-  <div class="answers" id="a"></div>
-
-  <div class="nav">
+  <!-- BOTTOM -->
+  <div class="bottom">
     <button onclick="prev()">⬅ Əvvəl</button>
     <button id="next" onclick="next()" disabled>Sonra ➡</button>
   </div>
@@ -156,7 +168,7 @@ body {
 
 </div>
 
-<!-- QUESTIONS FILE -->
+<!-- QUESTIONS -->
 <script src="questions.js"></script>
 
 <script>
@@ -169,7 +181,7 @@ let f = 0;
 function load() {
   let q = questions[order[i]];
   document.getElementById("q").innerText =
-    `${i + 1}/${questions.length} ${q.question}`;
+    `${i + 1}/${questions.length}. ${q.question}`;
 
   let a = document.getElementById("a");
   a.innerHTML = "";
@@ -195,13 +207,9 @@ function load() {
 function answer(x) {
   let q = questions[order[i]];
   state[i] = x;
-
-  if (x === q.correct) t++;
-  else f++;
-
+  x === q.correct ? t++ : f++;
   document.getElementById("t").innerText = t;
   document.getElementById("f").innerText = f;
-
   load();
 }
 
@@ -221,7 +229,7 @@ function prev() {
 
 function update() {
   let done = state.filter(v => v != null).length;
-  let percent = Math.round((done / questions.length) * 100);
+  let percent = Math.round(done / questions.length * 100);
   document.getElementById("bar").style.width = percent + "%";
   document.getElementById("progressText").innerText =
     `İcra olunub: ${done} / ${questions.length} (${percent}%)`;
