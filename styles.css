@@ -284,68 +284,90 @@ html, body {
   color: var(--danger-dark);
 }
 
-/* YALNIZ MOBİL TELEFONLAR ÜÇÜN - Font ölçüsü və məsafə artırıldı */
+/* YALNIZ MOBİL TELEFONLAR ÜÇÜN - Font ölçüsü 50% ARTIRILDI */
 @media (max-width: 767px) {
-  /* SEÇİMLƏR ARASI MƏSAFƏ BÖYÜK ARTIRILDI */
+  /* SEÇİMLƏR ARASI MƏSAFƏ ARTIRILDI */
   .answers {
-    gap: 1.5rem !important; /* 0.75rem-dən 1.5rem-ə artırıldı (2 qat) */
+    gap: 1.5rem !important; /* Desktop: 0.75rem, Mobil: 1.5rem (100% artım) */
   }
   
-  /* CAVAB DÜYMƏLƏRİNDƏ FONT ÖLÇÜSÜ BÖYÜK ARTIRILDI */
+  /* CAVAB DÜYMƏLƏRİNDƏ FONT ÖLÇÜSÜ 50% ARTIRILDI */
   .answer-btn {
-    font-size: 1.3rem !important; /* 1rem-dən 1.3rem-ə artırıldı (30% artım) */
-    padding: 1.5rem 1.2rem !important; /* Padding artırıldı */
-    min-height: 80px !important; /* 60px-dən 80px-ə artırıldı */
-    line-height: 1.4 !important; /* Sətirlər arası məsafə artırıldı */
+    font-size: 1.5rem !important; /* Desktop: 1rem, Mobil: 1.5rem (50% artım) */
+    padding: 1.75rem 1.5rem !important; /* Padding əhəmiyyətli dərəcədə artırıldı */
+    min-height: 95px !important; /* Desktop: 60px, Mobil: 95px (58% artım) */
+    line-height: 1.5 !important; /* Sətirlər arası məsafə artırıldı */
   }
   
-  /* HƏRF GÖSTƏRİCİLƏRİNİN ÖLÇÜSÜ ARTIRILDI */
+  /* HƏRF GÖSTƏRİCİLƏRİNİN ÖLÇÜSÜ 50% ARTIRILDI */
   .answer-letter {
-    width: 44px !important; /* 32px-dən 44px-ə artırıldı */
-    height: 44px !important; /* 32px-dən 44px-ə artırıldı */
-    font-size: 1.3rem !important; /* Font ölçüsü artırıldı */
-    margin-right: 1.5rem !important; /* Mətnlə arasındakı məsafə artırıldı */
+    width: 48px !important; /* Desktop: 32px, Mobil: 48px (50% artım) */
+    height: 48px !important; /* Desktop: 32px, Mobil: 48px (50% artım) */
+    font-size: 1.5rem !important; /* Desktop: 1rem, Mobil: 1.5rem (50% artım) */
+    margin-right: 1.75rem !important; /* Desktop: 1rem, Mobil: 1.75rem (75% artım) */
   }
   
-  /* SUAL MƏTNİ FONT ÖLÇÜSÜ ARTIRILDI */
+  /* SUAL MƏTNİ FONT ÖLÇÜSÜ 50% ARTIRILDI */
   .question-text {
-    font-size: 1.5rem !important; /* 1.25rem-dən 1.5rem-ə artırıldı */
+    font-size: 1.875rem !important; /* Desktop: 1.25rem, Mobil: 1.875rem (50% artım) */
     line-height: 1.5 !important;
-    margin-bottom: 1.5rem !important; /* Seçimlərə olan məsafə artırıldı */
+    margin-bottom: 2rem !important; /* Seçimlərə olan məsafə artırıldı */
   }
   
-  /* NAVİGASİYA DÜYMƏLƏRİNDƏ FONT ÖLÇÜSÜ ARTIRILDI */
+  /* NAVİGASİYA DÜYMƏLƏRİNDƏ FONT ÖLÇÜSÜ 50% ARTIRILDI */
   .nav-btn {
-    font-size: 1.2rem !important; /* 1rem-dən 1.2rem-ə artırıldı */
-    padding: 1.2rem !important; /* Padding artırıldı */
-    min-height: 55px !important;
+    font-size: 1.5rem !important; /* Desktop: 1rem, Mobil: 1.5rem (50% artım) */
+    padding: 1.5rem !important; /* Padding artırıldı */
+    min-height: 70px !important; /* Desktop: normal, Mobil: 70px */
   }
   
-  /* STATİSTİKA DƏYƏRLƏRİ FONT ÖLÇÜSÜ ARTIRILDI */
+  /* STATİSTİKA DƏYƏRLƏRİ FONT ÖLÇÜSÜ 50% ARTIRILDI */
   .stat-value {
-    font-size: 1.8rem !important; /* 1.5rem-dən 1.8rem-ə artırıldı */
+    font-size: 2.25rem !important; /* Desktop: 1.5rem, Mobil: 2.25rem (50% artım) */
   }
   
   .stat-label {
-    font-size: 1rem !important; /* 0.85rem-dən 1rem-ə artırıldı */
+    font-size: 1.275rem !important; /* Desktop: 0.85rem, Mobil: 1.275rem (50% artım) */
+  }
+  
+  /* HEADER ELEMENTLƏRİNİN FONT ÖLÇÜSÜ ARTIRILDI */
+  .progress-text {
+    font-size: 1.2rem !important; /* Desktop: 0.9rem, Mobil: 1.2rem (33% artım) */
+  }
+  
+  .question-counter {
+    font-size: 1.5rem !important; /* Desktop: 1rem, Mobil: 1.5rem (50% artım) */
   }
   
   /* PROGRESS BAR DAHA BÖYÜK ET */
   .progress {
-    height: 16px !important; /* 12px-dən 16px-ə artırıldı */
+    height: 20px !important; /* Desktop: 12px, Mobil: 20px (67% artım) */
+    border-radius: 10px !important;
   }
   
   .progress-bar {
     height: 100% !important;
+    border-radius: 10px !important;
   }
   
   /* HEADER PADDİNG ARTIRILDI */
   .header {
-    padding: 1.2rem 1rem !important;
+    padding: 1.5rem 1rem !important; /* Desktop: 1rem, Mobil: 1.5rem */
   }
   
-  .question-counter {
-    font-size: 1.1rem !important;
+  /* CONTENT PADDING ARTIRILDI */
+  .content {
+    padding: 1.75rem 1rem !important;
+  }
+  
+  /* QUESTION CONTAINER PADDING ARTIRILDI */
+  .question-container {
+    padding: 2rem 1.5rem !important;
+  }
+  
+  /* STATS CONTAINER PADDING ARTIRILDI */
+  .stats-container {
+    padding: 1.25rem !important;
   }
 }
 
@@ -478,46 +500,58 @@ html, body {
 /* Very small mobile devices (360px və aşağı) */
 @media (max-width: 360px) {
   .header {
-    padding: 1rem 0.75rem !important;
+    padding: 1.25rem 0.75rem !important;
   }
   
   .content {
-    padding: 1rem 0.75rem;
+    padding: 1.5rem 0.75rem !important;
   }
   
   .question-container {
-    padding: 1.25rem;
+    padding: 1.75rem 1.25rem !important;
   }
   
   /* Çox kiçik ekranlar üçün xüsusi tənzimləmələr */
   .answer-btn {
-    font-size: 1.25rem !important;
-    padding: 1.3rem 1rem !important;
-    min-height: 75px !important;
+    font-size: 1.4rem !important; /* Bir az kiçik */
+    padding: 1.5rem 1rem !important;
+    min-height: 85px !important;
   }
   
   .answer-letter {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 1.2rem !important;
-    margin-right: 1.2rem !important;
+    width: 44px !important; /* Bir az kiçik */
+    height: 44px !important;
+    font-size: 1.4rem !important;
+    margin-right: 1.5rem !important;
   }
   
   .question-text {
-    font-size: 1.4rem !important;
+    font-size: 1.7rem !important; /* Bir az kiçik */
   }
   
   .nav-btn {
-    padding: 1.1rem !important;
-    font-size: 1.15rem !important;
+    padding: 1.3rem !important;
+    font-size: 1.4rem !important;
   }
   
   .stat-value {
-    font-size: 1.7rem !important;
+    font-size: 2rem !important; /* Bir az kiçik */
   }
   
   .stat-label {
-    font-size: 0.95rem !important;
+    font-size: 1.2rem !important; /* Bir az kiçik */
+  }
+  
+  .progress-text {
+    font-size: 1.1rem !important; /* Bir az kiçik */
+  }
+  
+  .question-counter {
+    font-size: 1.4rem !important; /* Bir az kiçik */
+  }
+  
+  .progress {
+    height: 18px !important; /* Bir az kiçik */
   }
 }
 
@@ -532,7 +566,7 @@ html, body {
   }
   
   .question-container {
-    padding: 1rem;
+    padding: 1.5rem 1rem !important;
     margin-bottom: 1rem;
   }
   
@@ -541,20 +575,26 @@ html, body {
   }
   
   .answer-btn {
-    padding: 1rem !important;
-    min-height: 60px !important;
-    font-size: 1.1rem !important;
+    padding: 1.2rem !important;
+    min-height: 70px !important;
+    font-size: 1.3rem !important; /* Landscape üçün bir az kiçik */
   }
   
   .answer-letter {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 1.1rem !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.3rem !important;
+    margin-right: 1.2rem !important;
   }
   
   .question-text {
+    font-size: 1.5rem !important; /* Landscape üçün bir az kiçik */
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .nav-btn {
+    padding: 1.1rem !important;
     font-size: 1.3rem !important;
-    margin-bottom: 1rem !important;
   }
 }
 
