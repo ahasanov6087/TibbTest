@@ -2,7 +2,7 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Test Sistemi</title>
 
@@ -11,25 +11,33 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
   background: #f4f6f8;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Full screen container */
+/* App container (80% height) */
 .app {
-  min-height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  height: 80vh;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  background: #fff;
+  overflow: hidden;
 }
 
-/* Top progress */
+/* Top */
 .top {
-  padding: 12px;
+  padding: 12px 16px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -44,15 +52,14 @@ html, body {
   height: 100%;
   width: 0%;
   background: #4caf50;
-  transition: width 0.3s;
 }
 
 #progressText {
-  font-size: 14px;
+  font-size: 15px;
   margin-top: 6px;
 }
 
-/* Question area */
+/* Content */
 .content {
   flex: 1;
   padding: 16px;
@@ -60,18 +67,19 @@ html, body {
 }
 
 #q {
-  font-size: 20px;
-  line-height: 1.45;
-  margin-bottom: 18px;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  font-weight: bold;
 }
 
 /* Answers */
 .answers button {
   width: 100%;
-  padding: 18px;
-  margin: 10px 0;
-  font-size: 18px;
-  border-radius: 12px;
+  padding: 16px;
+  margin: 8px 0;
+  font-size: 19px;
+  border-radius: 10px;
   border: 2px solid #ccc;
   background: #f9f9f9;
   cursor: pointer;
@@ -94,9 +102,9 @@ html, body {
   color: #b71c1c;
 }
 
-/* Bottom navigation */
+/* Bottom (closer to answers) */
 .bottom {
-  padding: 14px;
+  padding: 10px 16px;
   border-top: 1px solid #ddd;
   display: flex;
   gap: 12px;
@@ -104,9 +112,9 @@ html, body {
 
 .bottom button {
   flex: 1;
-  padding: 16px;
+  padding: 14px;
   font-size: 18px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: none;
   background: #1976d2;
   color: white;
@@ -119,19 +127,30 @@ html, body {
 /* Stats */
 .stats {
   text-align: center;
-  font-size: 16px;
-  margin-top: 6px;
+  font-size: 17px;
+  padding: 6px 0 10px;
   font-weight: bold;
 }
 
-/* Desktop tweak */
-@media (min-width: 900px) {
+/* Mobile adjustments */
+@media (max-width: 600px) {
   .app {
-    max-width: 900px;
-    margin: auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    height: 85vh;
+    border-radius: 0;
+  }
+
+  #q {
+    font-size: 20px;
+  }
+
+  .answers button {
+    font-size: 17px;
+    padding: 14px;
+  }
+
+  .bottom button {
+    font-size: 16px;
+    padding: 12px;
   }
 }
 </style>
