@@ -34,7 +34,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Full screen container */
 .app {
   min-height: 100vh;
   display: flex;
@@ -44,7 +43,6 @@ html, body {
   margin: 0 auto;
 }
 
-/* Header / Top progress */
 .header {
   padding: 1rem;
   border-bottom: 1px solid var(--border-color);
@@ -96,7 +94,6 @@ html, body {
   text-align: center;
 }
 
-/* Main content */
 .content {
   flex: 1;
   padding: 1.5rem 1rem;
@@ -123,7 +120,6 @@ html, body {
   margin-bottom: 1rem;
 }
 
-/* Answers - Desktop default */
 .answers {
   display: flex;
   flex-direction: column;
@@ -199,7 +195,6 @@ html, body {
   background: var(--danger-color);
 }
 
-/* Navigation container - moved under options */
 .navigation-container {
   margin-top: auto;
   padding-top: 1.5rem;
@@ -250,7 +245,6 @@ html, body {
   background: var(--primary-dark);
 }
 
-/* Stats */
 .stats-container {
   display: flex;
   justify-content: space-around;
@@ -284,70 +278,89 @@ html, body {
   color: var(--danger-dark);
 }
 
-/* YALNIZ MOBİL ÜÇÜN - Font ölçüləri YARIDIR (köhnə ölçülərdən yarısı) */
+/* YALNIZ MOBİL ÜÇÜN - Font ölçüləri kiçildi */
 @media only screen and (max-width: 767px) {
-  /* Cavab düymələri font ölçüsü YARIDIR */
+  /* Cavab düymələri font ölçüsü kiçik */
   .answer-btn {
-    font-size: 0.85rem !important; /* Köhnə: 1.7rem, İndi: 0.85rem (50% az) */
-    padding: 0.9rem 0.8rem !important; /* Padding azaldıldı */
-    min-height: 50px !important; /* Köhnə: 100px, İndi: 50px (50% az) */
+    font-size: 0.85rem !important;
+    padding: 0.9rem 0.8rem !important;
+    min-height: 50px !important;
     line-height: 1.3 !important;
+    background: var(--white) !important; /* QIRMIZI RƏNGİ SİLDİK */
+    color: var(--text-primary) !important; /* AĞ RƏNGİ SİLDİK */
   }
   
   /* Seçimlər arası məsafə azaldıldı */
   .answers {
-    gap: 0.5rem !important; /* Köhnə: 1.5rem, İndi: 0.5rem */
+    gap: 0.5rem !important;
   }
   
-  /* Hərf göstəriciləri YARIDIR */
+  /* Hərf göstəriciləri kiçik */
   .answer-letter {
-    width: 26px !important; /* Köhnə: 52px, İndi: 26px (50% az) */
-    height: 26px !important; /* Köhnə: 52px, İndi: 26px (50% az) */
-    font-size: 0.85rem !important; /* Köhnə: 1.7rem, İndi: 0.85rem (50% az) */
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.85rem !important;
     margin-right: 0.8rem !important;
+    background: var(--primary-color) !important; /* Normal rəng */
+    color: white !important; /* Normal rəng */
   }
   
-  /* Sual mətni YARIDIR */
+  /* Sual mətni kiçik */
   .question-text {
-    font-size: 1rem !important; /* Köhnə: 2rem, İndi: 1rem (50% az) */
+    font-size: 1rem !important;
     line-height: 1.4 !important;
     margin-bottom: 1rem !important;
+    color: var(--text-primary) !important; /* Normal rəng */
   }
   
-  /* Naviasiya düymələri YARIDIR */
+  /* Naviasiya düymələri kiçik */
   .nav-btn {
-    font-size: 0.85rem !important; /* Köhnə: 1.7rem, İndi: 0.85rem (50% az) */
+    font-size: 0.85rem !important;
     padding: 0.8rem !important;
     min-height: 45px !important;
   }
   
-  /* Statistika dəyərləri YARIDIR */
+  .nav-btn.prev {
+    background: #f5f5f5 !important; /* Normal rəng */
+    color: var(--text-primary) !important; /* Normal rəng */
+  }
+  
+  .nav-btn.next {
+    background: var(--primary-color) !important; /* Normal rəng */
+    color: white !important; /* Normal rəng */
+  }
+  
+  /* Statistika dəyərləri kiçik */
   .stat-value {
-    font-size: 1.1rem !important; /* Köhnə: 2.2rem, İndi: 1.1rem (50% az) */
+    font-size: 1.1rem !important;
+    color: inherit !important; /* Normal rəng */
   }
   
   .stat-label {
-    font-size: 0.7rem !important; /* Köhnə: 1.4rem, İndi: 0.7rem (50% az) */
+    font-size: 0.7rem !important;
+    color: var(--text-secondary) !important; /* Normal rəng */
   }
   
-  /* Header elementləri YARIDIR */
+  /* Header elementləri kiçik */
   .progress-text {
-    font-size: 0.75rem !important; /* Köhnə: 1.5rem, İndi: 0.75rem (50% az) */
+    font-size: 0.75rem !important;
+    color: var(--text-secondary) !important; /* Normal rəng */
   }
   
   .question-counter {
-    font-size: 0.85rem !important; /* Köhnə: 1.7rem, İndi: 0.85rem (50% az) */
+    font-size: 0.85rem !important;
+    color: var(--primary-color) !important; /* Normal rəng */
   }
   
-  /* Progress bar YARIDIR */
+  /* Progress bar kiçik */
   .progress {
-    height: 8px !important; /* Köhnə: 16px, İndi: 8px (50% az) */
+    height: 8px !important;
     border-radius: 4px !important;
   }
   
   /* Bütün padding-lər azaldıldı */
   .header {
-    padding: 0.8rem !important; /* Köhnə: 1.6rem, İndi: 0.8rem (50% az) */
+    padding: 0.8rem !important;
   }
   
   .content {
@@ -355,15 +368,29 @@ html, body {
   }
   
   .question-container {
-    padding: 1.2rem !important; /* Köhnə: 2.4rem, İndi: 1.2rem (50% az) */
+    padding: 1.2rem !important;
   }
   
   .stats-container {
-    padding: 0.6rem !important; /* Köhnə: 1.2rem, İndi: 0.6rem (50% az) */
+    padding: 0.6rem !important;
+    background: #f9f9f9 !important; /* Normal rəng */
   }
   
   .navigation-container {
     padding-top: 1rem !important;
+  }
+  
+  /* Arxa fon rəngləri normal et */
+  body {
+    background: var(--light-bg) !important; /* QIRMIZI RƏNGİ SİLDİK */
+  }
+  
+  .app {
+    background: var(--white) !important; /* Normal rəng */
+  }
+  
+  .question-container {
+    background: var(--white) !important; /* Normal rəng */
   }
 }
 
@@ -477,30 +504,5 @@ html, body {
     max-width: 500px;
     margin: 0 auto;
     padding: 1.25rem;
-  }
-}
-
-/* Kiçik telefonlar üçün daha da kiçik */
-@media only screen and (max-width: 360px) {
-  .answer-btn {
-    font-size: 0.8rem !important;
-    padding: 0.8rem 0.7rem !important;
-    min-height: 45px !important;
-  }
-  
-  .answer-letter {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 0.8rem !important;
-    margin-right: 0.7rem !important;
-  }
-  
-  .question-text {
-    font-size: 0.95rem !important;
-  }
-  
-  .nav-btn {
-    font-size: 0.8rem !important;
-    padding: 0.7rem !important;
   }
 }
