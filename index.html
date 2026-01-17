@@ -69,21 +69,24 @@ body {
 #q {
   font-size: 22px;
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 20px; /* Increased margin */
   font-weight: bold;
 }
 
-/* Answers */
+/* Answers - INCREASED SIZE */
 .answers button {
   width: 100%;
-  padding: 16px;
-  margin: 8px 0;
-  font-size: 19px;
+  padding: 22px; /* Increased from 16px */
+  margin: 10px 0; /* Increased from 8px */
+  font-size: 21px; /* Increased from 19px */
   border-radius: 10px;
   border: 2px solid #ccc;
   background: #f9f9f9;
   cursor: pointer;
   text-align: left;
+  min-height: 70px; /* Minimum height */
+  display: flex;
+  align-items: center;
 }
 
 .answers button:disabled {
@@ -112,12 +115,13 @@ body {
 
 .bottom button {
   flex: 1;
-  padding: 14px;
-  font-size: 18px;
+  padding: 16px; /* Increased from 14px */
+  font-size: 19px; /* Increased from 18px */
   border-radius: 10px;
   border: none;
   background: #1976d2;
   color: white;
+  min-height: 60px; /* Minimum height */
 }
 
 .bottom button:disabled {
@@ -144,13 +148,15 @@ body {
   }
 
   .answers button {
-    font-size: 17px;
-    padding: 14px;
+    font-size: 19px; /* Increased from 17px */
+    padding: 18px; /* Increased from 14px */
+    min-height: 65px; /* Minimum height for mobile */
   }
 
   .bottom button {
-    font-size: 16px;
-    padding: 12px;
+    font-size: 18px; /* Increased from 16px */
+    padding: 14px; /* Increased from 12px */
+    min-height: 55px; /* Minimum height for mobile */
   }
 }
 </style>
