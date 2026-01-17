@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Test Sistemi</title>
+<style>
+body{font-family:Arial;background:#f4f6f8}
+.container{max-width:900px;margin:40px auto;background:#fff;padding:25px;border-radius:10px}
+.progress{height:20px;background:#ddd;border-radius:10px;overflow:hidden}
+.progress-bar{height:100%;background:#4caf50;width:0%}
+.answers button{display:block;width:100%;margin:8px 0;padding:12px}
+.correct{background:#c8e6c9}
+.wrong{background:#ffcdd2}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+  <p id="progressText"></p>
+
+  <h3 id="q"></h3>
+  <div class="answers" id="a"></div>
+
+  <button onclick="prev()">Əvvəl</button>
+  <button id="next" onclick="next()" disabled>Sonra</button>
+
+  <p>Doğru: <span id="t">0</span> | Səhv: <span id="f">0</span></p>
+</div>
+
+<script src="questions.js"></script>
+<script>
+let order=[...questions.keys()].sort(()=>Math.random()-0.5);
+let i=0, state=[], t=0, f=0;
+
+function load(){
+ let q=questions[order[i]];
+ document.getElementById("q").innerText=`${i+1}/${questions.length} ${q.question}`;
+ let a=document.getElementById("a");
+ a.innerHTML="";
+ q.options.forEach((o,idx)=>{
+   let b=document.createElement("button");
+   b.innerText=o;
+   if(state[i]!=null){
+     b.disabled=true;
+     if(idx===q.correct)b.className="correct";
+     if(idx===state[i]&&idx!==q.correct)b.className="wrong";
+   }else b.onclick=()=>ans(idx);
+   a.appendChild(b);
+ });
+ document.getElementById("next").disabled=state[i]==null;
+ update();
+}
+
+function ans(x){
+ let q=questions[order[i]];
+ state[i]=x;
+ x===q.correct?t++:f++;
+ document.getElementById("t").innerText=t;
+ document.getElementById("f").innerText=f;
+ load();
+}
+
+function next(){ if(i<questions.length-1){i++;load();}}
+function prev(){ if(i>0){i--;load();}}
+
+function update(){
+ let d=state.filter(x=>x!=null).length;
+ let p=Math.round(d/questions.length*100);
+ document.getElementById("bar").style.width=p+"%";
+ document.getElementById("progressText").innerText=`${p}% tamamlandı`;
+}
+
+load();
+</script>
+</body>
+</html>
