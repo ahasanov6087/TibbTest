@@ -1,267 +1,60 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Test Sistemi</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #f4f6f8;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* App container (80% height) */
-.app {
-  width: 100%;
-  max-width: 900px;
-  height: 80vh;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* Top */
-.top {
-  padding: 12px 16px;
-  border-bottom: 1px solid #ddd;
-}
-
-.progress {
-  height: 16px;
-  background: #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: #4caf50;
-}
-
-#progressText {
-  font-size: 15px;
-  margin-top: 6px;
-}
-
-/* Content */
-.content {
-  flex: 1;
-  padding: 16px;
-  overflow-y: auto;
-}
-
-#q {
-  font-size: 22px;
-  line-height: 1.5;
-  margin-bottom: 20px; /* Increased margin */
-  font-weight: bold;
-}
-
-/* Answers - INCREASED SIZE */
-.answers button {
-  width: 100%;
-  padding: 22px; /* Increased from 16px */
-  margin: 10px 0; /* Increased from 8px */
-  font-size: 21px; /* Increased from 19px */
-  border-radius: 10px;
-  border: 2px solid #ccc;
-  background: #f9f9f9;
-  cursor: pointer;
-  text-align: left;
-  min-height: 70px; /* Minimum height */
-  display: flex;
-  align-items: center;
-}
-
-.answers button:disabled {
-  cursor: default;
-}
-
-.correct {
-  background: #c8e6c9 !important;
-  border-color: #2e7d32;
-  color: #1b5e20;
-}
-
-.wrong {
-  background: #ffcdd2 !important;
-  border-color: #c62828;
-  color: #b71c1c;
-}
-
-/* Bottom (closer to answers) */
-.bottom {
-  padding: 10px 16px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  gap: 12px;
-}
-
-.bottom button {
-  flex: 1;
-  padding: 16px; /* Increased from 14px */
-  font-size: 19px; /* Increased from 18px */
-  border-radius: 10px;
-  border: none;
-  background: #1976d2;
-  color: white;
-  min-height: 60px; /* Minimum height */
-}
-
-.bottom button:disabled {
-  background: #90a4ae;
-}
-
-/* Stats */
-.stats {
-  text-align: center;
-  font-size: 17px;
-  padding: 6px 0 10px;
-  font-weight: bold;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  .app {
-    height: 85vh;
-    border-radius: 0;
-  }
-
-  #q {
-    font-size: 20px;
-  }
-
-  .answers button {
-    font-size: 19px; /* Increased from 17px */
-    padding: 18px; /* Increased from 14px */
-    min-height: 65px; /* Minimum height for mobile */
-  }
-
-  .bottom button {
-    font-size: 18px; /* Increased from 16px */
-    padding: 14px; /* Increased from 12px */
-    min-height: 55px; /* Minimum height for mobile */
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Responsive Test Sistemi - Bütün cihazlarda optimal işləyir">
+    <title>Responsive Test Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <div class="app">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-content">
+                <div class="progress-container">
+                    <div class="progress-text" id="progressText">İcra olunub: 0 / 0 (0%)</div>
+                    <div class="progress">
+                        <div class="progress-bar" id="bar"></div>
+                    </div>
+                </div>
+                <div class="question-counter" id="questionCounter">Sual 1 / 10</div>
+            </div>
+        </div>
 
-<div class="app">
+        <!-- CONTENT -->
+        <div class="content">
+            <div class="question-container">
+                <div class="question-text" id="q"></div>
+                <div class="answers" id="a"></div>
+            </div>
+        </div>
 
-  <!-- TOP -->
-  <div class="top">
-    <div class="progress">
-      <div class="progress-bar" id="bar"></div>
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prev()" aria-label="Əvvəlki sual">
+                    <span>⬅</span> Əvvəl
+                </button>
+                <button class="nav-btn next" id="next" onclick="next()" disabled aria-label="Növbəti sual">
+                    Sonra <span>➡</span>
+                </button>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat correct-stat">
+                    <span class="stat-value" id="t">0</span>
+                    <span class="stat-label">Doğru</span>
+                </div>
+                <div class="stat wrong-stat">
+                    <span class="stat-value" id="f">0</span>
+                    <span class="stat-label">Səhv</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="progressText"></div>
-  </div>
 
-  <!-- CONTENT -->
-  <div class="content">
-    <div id="q"></div>
-    <div class="answers" id="a"></div>
-  </div>
-
-  <!-- BOTTOM -->
-  <div class="bottom">
-    <button onclick="prev()">⬅ Əvvəl</button>
-    <button id="next" onclick="next()" disabled>Sonra ➡</button>
-  </div>
-
-  <div class="stats">
-    Doğru: <span id="t">0</span> |
-    Səhv: <span id="f">0</span>
-  </div>
-
-</div>
-
-<!-- QUESTIONS -->
-<script src="questions.js"></script>
-
-<script>
-let order = [...questions.keys()].sort(() => Math.random() - 0.5);
-let i = 0;
-let state = [];
-let t = 0;
-let f = 0;
-
-function load() {
-  let q = questions[order[i]];
-  document.getElementById("q").innerText =
-    `${i + 1}/${questions.length}. ${q.question}`;
-
-  let a = document.getElementById("a");
-  a.innerHTML = "";
-
-  q.options.forEach((o, idx) => {
-    let b = document.createElement("button");
-    b.innerText = o;
-
-    if (state[i] != null) {
-      b.disabled = true;
-      if (idx === q.correct) b.classList.add("correct");
-      if (idx === state[i] && idx !== q.correct) b.classList.add("wrong");
-    } else {
-      b.onclick = () => answer(idx);
-    }
-    a.appendChild(b);
-  });
-
-  document.getElementById("next").disabled = state[i] == null;
-  update();
-}
-
-function answer(x) {
-  let q = questions[order[i]];
-  state[i] = x;
-  x === q.correct ? t++ : f++;
-  document.getElementById("t").innerText = t;
-  document.getElementById("f").innerText = f;
-  load();
-}
-
-function next() {
-  if (i < questions.length - 1) {
-    i++;
-    load();
-  }
-}
-
-function prev() {
-  if (i > 0) {
-    i--;
-    load();
-  }
-}
-
-function update() {
-  let done = state.filter(v => v != null).length;
-  let percent = Math.round(done / questions.length * 100);
-  document.getElementById("bar").style.width = percent + "%";
-  document.getElementById("progressText").innerText =
-    `İcra olunub: ${done} / ${questions.length} (${percent}%)`;
-}
-
-load();
-</script>
-
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
