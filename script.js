@@ -131,6 +131,10 @@ document.addEventListener('keydown', function(e) {
     }
   }
 });
+function goHome() {
+    window.location.href = "index.html";
+}
+
 
 // Initialize the app
 load();
